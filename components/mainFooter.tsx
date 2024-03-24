@@ -17,7 +17,7 @@ const MainFooter = () => {
                 href="/"
                 className="flex justify-center space-x-3 md:justify-start"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-rose-600 text-white">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white">
                   <Flower2 />
                 </div>
                 <span className="self-center text-2xl font-semibold">
@@ -30,7 +30,7 @@ const MainFooter = () => {
                
                 href="mailto:siddhartha.singh3093@gmail.com"
                 title="Email"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-rose-600 text-gray-50"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-gray-50"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const MainFooter = () => {
                 href="https://github.com/siddhartha-up80"
                 target='_blank'
                 title="GitHub"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-rose-600 text-gray-50"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-gray-50"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

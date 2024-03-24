@@ -28,12 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <meta
         name="google-site-verification"
         content="wuKkVFD1dhs31EjQNk81yBbw-temshhMPPc8JGAUC94"
       />
       <body className={inter.className}>
+      
+
         <div className="">
           <MainNav />
         </div>
