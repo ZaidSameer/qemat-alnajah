@@ -22,15 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className="scroll-smooth">
       <body className={inter.className}>
-        <div className="">
-          <MainNav />
-        </div>
-
-        <div className="min-h-screen mt-16">{children}</div>
-
-        <div>
-          <MainFooter />
-        </div>
+        <MainNav />
+        <div className="min-h-screen">{children}</div>
+        <MainFooter />
         <Toaster />
       </body>
     </html>

@@ -1,4 +1,3 @@
-
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -14,31 +13,31 @@ import { FacebookIcon } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="-mt-16">
-      <section id="home" className="py-20 relative" style={{ backgroundImage: `url(${HeroImage.src})` }}>
+    <main>
+      <section id="home" className="relative" style={{ backgroundImage: `url(${HeroImage.src})` }}>
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/50 z-[1]" />
         <Container>
-          <div className="flex min-h-screen flex-col justify-center text-center lg:text-left leading-snug relative z-10">
+          <div className="flex min-h-screen flex-col justify-center text-center lg:text-left leading-snug relative z-10 pt-20">
             <p className="mb-2 text-base text-primary">Since 2005</p>
             <h1 className="text-4xl font-bold sm:text-5xl leading-snug">
-              <span className="text-primary leading-snug"> QEMAH AL-NAJAH Co. </span>
+              <span className="text-primary leading-snug"> {config.title} </span>
             </h1>
             <p className="mb-4 text-3xl font-bold sm:mb-8 leading-snug">
-              General Trading & Supply Contracting
+              General Trading & Supply Contracting Company
             </p>{" "}
             <div className="flex justify-center items-center md:justify-start w-full md:max-w-3xl">
               <div className="mb-8 text-lg leading-snug text-gray-600">
-                Qemah Al-Najah Co. It is the name behind many Iraq’s most advanced and prestigious facilities. The
+                <strong className="text-black">Qemah Al-Najah Co.</strong>  It is the name behind many Iraq’s most advanced and prestigious facilities. The
                 company was established in 1998. And it is headquartered in Baghdad. Over the years, the group has
                 un- retaken many challenging projects and accumulated skills.
               </div>
 
             </div>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <Link href="/contact" className={cn(buttonVariants({ variant: "default" }))}>
+              <Link href="#contact" className={cn(buttonVariants({ variant: "default" }))}>
                 Contact us
               </Link>
-              <Link href="/about" className={cn(buttonVariants({ variant: "secondary" }))}>
+              <Link href="#about" className={cn(buttonVariants({ variant: "secondary" }))}>
                 Read more
               </Link>
             </div>
@@ -61,7 +60,7 @@ export default function Home() {
                 className="rounded-sm"
               />
             </div>
-            <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
+            <div className="flex flex-col justify-center flex-1 lg:flex-2">
               <span className="mb-3 text-xs tracking-widest uppercase text-primary">
                 An Innovative Company that Delivers on Expectations
               </span>
@@ -84,11 +83,12 @@ export default function Home() {
           <p className="mb-8">
             Qemah Al-Najah Co. in Baghdad offers a wide range of services with a higher the caliber of expertise in the respective fields of General Trading, Contracting, Construction, Logistics, Cargo, International ordering, Shipping, Electrical and power equipment, and supplying different types of materials as required. Working with profit and humanitarian non-profit sector.
           </p>
+
           <h2 className="text-3xl font-bold mb-8">We are specialized in</h2>
-          <div className="grid grid-cols-2 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
             {config.specialties.map((specialty, index) => (
-              <div key={index} className="flex cursor-pointer p-4 items-center justify-center w-full h-full rounded-lg bg-primary text-white border-transparent border-2 hover:bg-transparent hover:border-primary hover:border-2 hover:text-primary transition-all duration-300 ease-linear">
-                <p className="text-xl">{specialty}</p>
+              <div key={index} className="flex text-center cursor-pointer py-3 items-center justify-center w-full h-full rounded-lg bg-primary text-white border-transparent border-2 hover:bg-transparent hover:border-primary hover:border-2 hover:text-primary transition-all duration-300 ease-linear">
+                <p className="text-base">{specialty}</p>
               </div>
             ))}
           </div>
@@ -103,13 +103,14 @@ export default function Home() {
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
               <Image
                 src={MedicalImage}
-                alt=""
+                alt="Medical Supply"
                 height={500}
                 width={500}
-                className="rounded-sm h-96"
+                className="rounded-sm"
+                // style={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
             </div>
-            <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
+            <div className="flex flex-col justify-center flex-1 lg:flex-2">
               <span className="mb-2 text-xs tracking-widest uppercase text-primary">
                 An Innovative Company
               </span>
@@ -137,7 +138,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
+          <div className="flex flex-col justify-center flex-1 lg:flex-2">
             <span className="mb-3 text-xs tracking-widest uppercase text-primary">
               We Demand Excellence
             </span>
@@ -157,16 +158,17 @@ export default function Home() {
       </section>
 
 
-      <section className="p-14 bg-primary text-gray-50">
-        <Container className="flex items-center justify-between">
-          <div className="flex flex-col space-y-2 text-center lg:text-left">
+      <section className="py-14 bg-primary text-gray-50">
+        <Container className="flex items-center justify-between flex-col md:flex-row">
+          <div className="flex flex-col lg:flex-row space-y-2 text-center sm:text-left mb-8 md:mb-0">
             <h2 className="text-3xl font-bold leading-none">
               Follow on Facebook for more project updates
             </h2>
-            <p className="px-4 text-lg lg:px-0">
+            <p className="text-white/60 text-lg lg:px-0">
               When I add something new, you will be the first to know
             </p>
           </div>
+
           <div className="flex flex-row items-center self-center justify-center flex-shrink-0 lg:justify-end">
             <Link href={config.facebookURL}>
               <Button variant="outline" size="lg" className="text-black dark:text-white">
@@ -177,11 +179,11 @@ export default function Home() {
         </Container>
       </section>
 
-      <section id="contact" className="p-20">
+      <section id="contact" className="py-20">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="flex flex-col">
-            <h2 className="text-3xl font-bold">Contact us</h2>
-            <p className="mt-4 text-lg leading-6 text-gray-600">
+            <h2 className="text-3xl font-bold mb-4">Contact us</h2>
+            <p className="text-lg leading-6 text-gray-600">
               If you have requests, suggestions or any other feedback, please
               leave a message below and we&apos;ll get back to you as soon as
               possible.

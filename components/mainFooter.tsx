@@ -6,8 +6,8 @@ import { config } from '@/lib/config';
 const MainFooter = () => {
 
   return (
-    <div className="mt-10 shadow-md">
-      <footer className="py-6 text-gray-900 w-full" >
+    <div className="mt-10 shadow-md bg-gray-900">
+      <footer className="py-6 text-gray-500 w-full" >
         <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
           <div className="flex items-center justify-between">
             <div className="col-span-full md:pb-0 md:col-span-6">
