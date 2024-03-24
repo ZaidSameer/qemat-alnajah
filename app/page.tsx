@@ -6,31 +6,21 @@ import Link from "next/link";
 import HeroImage from "../public/hero-bg.jpg";
 import OverviewImage from "../public/overview-bg.jpg";
 import MedicalImage from "../public/medical-bg.jpg";
+import AgricultureImage from "../public/agriculture-bg.jpg";
 import Container from "@/components/container";
-
-export const specialties = [
-  "Construction",
-  "Medical Support Services",
-  "Supply Contracting",
-  "Trading",
-  "Contracting",
-  "Food Items",
-  "None-Food Items",
-  "Rental Services",
-  "Manpower & Packaging",
-];
+import { config } from "@/lib/config";
+import ContactForm from "@/components/contact-form";
+import { FacebookIcon } from "lucide-react";
 
 export default function Home() {
   return (
-    <main>
-      <section className="relative" style={{ backgroundImage: `url(${HeroImage.src})` }}>
+    <main className="-mt-16">
+      <section id="home" className="py-20 relative" style={{ backgroundImage: `url(${HeroImage.src})` }}>
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/50 z-[1]" />
         <Container>
-
-          <div className="flex min-h-[calc(100vh-4rem)] flex-col justify-center text-center rounded-sm lg:text-left leading-snug relative z-10">
-
+          <div className="flex min-h-screen flex-col justify-center text-center lg:text-left leading-snug relative z-10">
             <p className="mb-2 text-base text-primary">Since 2005</p>
-            <h1 className="text-6xl font-bold sm:text-5xl leading-snug">
+            <h1 className="text-4xl font-bold sm:text-5xl leading-snug">
               <span className="text-primary leading-snug"> QEMAH AL-NAJAH Co. </span>
             </h1>
             <p className="mb-4 text-3xl font-bold sm:mb-8 leading-snug">
@@ -59,7 +49,7 @@ export default function Home() {
 
       {/* features section */}
 
-      <section className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white">
         <Container>
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
@@ -73,11 +63,9 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
               <span className="mb-3 text-xs tracking-widest uppercase text-primary">
-                We Demand Excellence
-              </span>
-              <h2 className="text-3xl font-bold mb-5">
                 An Innovative Company that Delivers on Expectations
-              </h2>
+              </span>
+              <h2 className="text-3xl font-bold mb-5">An Overview</h2>
               <p className="text-gray-600 leading-snug text-bass">
                 Qemah Al-Najah Co., headquartered in the capital of Iraq, with its cutting edge management and staff are composed of Individuals with extensive experience in their respective fields of expertise and continues to rise to the challenges that rapid development in Iraqi region has generated, the diversity of disciplines of the Qemah Al-Najah Co. staff and their experience in executing major projects a clear indication of the professionalism that we deliver to our clients and inspires confidence in our capability to deliver optimum project execution.
               </p>
@@ -87,13 +75,20 @@ export default function Home() {
       </section>
 
       {/* stats */}
-      <section className="py-20 bg-sky-100">
+      <section id="services" className="py-20 bg-sky-100">
         <Container>
+          <span className="mb-3 text-xs tracking-widest uppercase text-primary">
+            We Demand Excellence
+          </span>
+          <h2 className="text-3xl font-bold mb-8">Our Services</h2>
+          <p className="mb-8">
+            Qemah Al-Najah Co. in Baghdad offers a wide range of services with a higher the caliber of expertise in the respective fields of General Trading, Contracting, Construction, Logistics, Cargo, International ordering, Shipping, Electrical and power equipment, and supplying different types of materials as required. Working with profit and humanitarian non-profit sector.
+          </p>
           <h2 className="text-3xl font-bold mb-8">We are specialized in</h2>
           <div className="grid grid-cols-2 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
-            {specialties.map((specialty, index) => (
+            {config.specialties.map((specialty, index) => (
               <div key={index} className="flex cursor-pointer p-4 items-center justify-center w-full h-full rounded-lg bg-primary text-white border-transparent border-2 hover:bg-transparent hover:border-primary hover:border-2 hover:text-primary transition-all duration-300 ease-linear">
-                <p className="text-xl ">{specialty}</p>
+                <p className="text-xl">{specialty}</p>
               </div>
             ))}
           </div>
@@ -116,127 +111,85 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
               <span className="mb-2 text-xs tracking-widest uppercase text-primary">
-                just copy paste skills required
+                An Innovative Company
               </span>
               <h2 className="text-3xl font-bold">
-                Get the server side compatible components in one place
+                Our Vision
               </h2>
               <p className="my-6 ">
-                We know it&apos;s frustrating to find an UI kit with all the
-                supported components for next.js 14 and then find out that each
-                element does not work with server side, so here you will find
-                150+ building blocks for free. And there are many more on the
-                way!
+                Our Vision is to be a partner of choice for customers operating in complex, mission-critical environments by providing the most innovative modelling and simulation-based solution to Enhance safety, improve efficiency, help solve challenging problems, and provide clients with up-to-date service.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-     
+
       <section className="pb-20 pt-10 bg-white">
-        <Container>
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
-              <Image
-                src={OverviewImage}
-                alt="Company Overview"
-                height={500}
-                width={500}
-                className="rounded-sm"
-              />
-            </div>
-            <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
-              <span className="mb-3 text-xs tracking-widest uppercase text-primary">
-                We Demand Excellence
-              </span>
-              <h2 className="text-3xl font-bold mb-5">
-                An Innovative Company that Delivers on Expectations
-              </h2>
-              <p className="text-gray-600 leading-snug text-bass">
-                Qemah Al-Najah Co., headquartered in the capital of Iraq, with its cutting edge management and staff are composed of Individuals with extensive experience in their respective fields of expertise and continues to rise to the challenges that rapid development in Iraqi region has generated, the diversity of disciplines of the Qemah Al-Najah Co. staff and their experience in executing major projects a clear indication of the professionalism that we deliver to our clients and inspires confidence in our capability to deliver optimum project execution.
-              </p>
-            </div>
+        <Container className="flex flex-col lg:flex-row gap-8">
+          <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+            <Image
+              src={AgricultureImage}
+              alt="Agriculture Image"
+              height={500}
+              width={500}
+              className="rounded-sm"
+            />
+          </div>
+
+          <div className="flex flex-col justify-center flex-1 px-6 lg:flex-2">
+            <span className="mb-3 text-xs tracking-widest uppercase text-primary">
+              We Demand Excellence
+            </span>
+
+            <h2 className="text-3xl font-bold mb-5">Our Mission</h2>
+
+            <p className="text-gray-600 leading-snug text-bass mb-4">
+              Our mission is to give our customers satisfaction in all our services. We provide a professional, client-focused solution. As an employee-owned company, we go above and beyond every project and deliver on our promises with integrity. To be the world’s most respected and attractive company in our industry, creating value for our stakeholders.
+            </p>
+
+            <p>
+              <strong>Strength:</strong> We are a solid partner for our customers and all stakeholders based on the integrity and competence of our people.
+            </p>
+
           </div>
         </Container>
       </section>
 
 
-      {/* features section */}
-
-      {/* banner section */}
-      <section className="py-6 bg-primary text-gray-50 mt-14">
-        <div className="container justify-center p-4 mx-auto space-y-8 md:p-10 lg:space-y-0 lg:space-x-12 lg:justify-around lg:flex lg:flex-row">
+      <section className="p-14 bg-primary text-gray-50">
+        <Container className="flex items-center justify-between">
           <div className="flex flex-col space-y-2 text-center lg:text-left">
             <h2 className="text-3xl font-bold leading-none">
               Follow on Facebook for more project updates
             </h2>
             <p className="px-4 text-lg lg:px-0">
-              When I add something new, you will be the first to know{" "}
+              When I add something new, you will be the first to know
             </p>
           </div>
           <div className="flex flex-row items-center self-center justify-center flex-shrink-0 lg:justify-end">
-            <Link href="https://facebook.com">
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-black dark:text-white"
-              >
-                Facebook
+            <Link href={config.facebookURL}>
+              <Button variant="outline" size="lg" className="text-black dark:text-white">
+                Facebook <FacebookIcon className="size-5 ms-2" />
               </Button>
             </Link>
           </div>
-        </div>
+        </Container>
       </section>
-      {/* banner section */}
 
-      {/* faq section */}
-      <section className="mt-14 md:max-w-[70vw] mx-auto">
-        <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-          <h2 className="text-2xl font-semibold sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-4 mb-8 ">
-            Here are some of our FAQs. If you have any other questions
-            you&apos;d like answered please feel free to contact me.
-          </p>
-          <div className="space-y-4">
-            <details className="w-full border rounded-lg">
-              <summary className="px-4 py-6 focus:outline-none focus-visible:ri">
-                What is Inators UI?
-              </summary>
-              <p className="px-4 py-6 pt-0 ml-4 -mt-4 ">
-                Inators UI is a free, open-source collection of UI elements
-                based on Tailwind CSS, shadcn/ui and inspired from MambaUI that
-                make it easy for anyone to build a next.js 14 web-app in
-                minutes. Whether you&apos;re looking to create an e-commerce
-                website or a personal blog, Inators UI have all the elements you
-                need to get started right away..{" "}
-              </p>
-            </details>
-            <details className="w-full border rounded-lg">
-              <summary className="px-4 py-6 focus:outline-none focus-visible:ri">
-                Will it support server side components in next.js 14?
-              </summary>
-              <p className="px-4 py-6 pt-0 ml-4 -mt-4 ">
-                Yes, it is 100% compatible with next.js 14 without making any
-                component client side.{" "}
-              </p>
-            </details>
-            <details className="w-full border rounded-lg">
-              <summary className="px-4 py-6 focus:outline-none focus-visible:ri">
-                Some of the components don&apos;t seem to work. Is something
-                broken?
-              </summary>
-              <p className="px-4 py-6 pt-0 ml-4 -mt-4 ">
-                Just install necessary dependencies and try again, if it is not
-                working than contact us via email or contact form.{" "}
-              </p>
-            </details>
+      <section id="contact" className="p-20">
+        <Container className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="flex flex-col">
+            <h2 className="text-3xl font-bold">Contact us</h2>
+            <p className="mt-4 text-lg leading-6 text-gray-600">
+              If you have requests, suggestions or any other feedback, please
+              leave a message below and we&apos;ll get back to you as soon as
+              possible.
+            </p>
           </div>
-        </div>
+          <ContactForm />
+        </Container>
       </section>
-      {/* faq section */}
     </main>
   );
 }

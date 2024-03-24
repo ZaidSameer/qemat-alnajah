@@ -4,22 +4,14 @@ import "./globals.css";
 import MainNav from "@/components/mainNav";
 import MainFooter from "@/components/mainFooter";
 import { Toaster } from "sonner";
+import { config } from "@/lib/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "InatorsUI | Shadcn-ui based components for nextjs developers",
-  description:
-    "inatorsui is a collection of nextjs components and templates based on Tailwind and Shadcn/ui for nextjs, just copy and use",
-  keywords: [
-    "Tailwind",
-    "Shadcn/ui",
-    "Components",
-    "Inators UI",
-    "Inatorsui",
-    "Inators",
-    "inatorsui",
-  ],
+  title: config.seoTitle,
+  description: config.seoDescription,
+  keywords: config.specialties,
 };
 
 export default function RootLayout({
@@ -28,14 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" dir="ltr">
-      <meta
-        name="google-site-verification"
-        content="wuKkVFD1dhs31EjQNk81yBbw-temshhMPPc8JGAUC94"
-      />
+    <html lang="en" dir="ltr" className="scroll-smooth">
       <body className={inter.className}>
-      
-
         <div className="">
           <MainNav />
         </div>
