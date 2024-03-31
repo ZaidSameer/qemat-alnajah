@@ -1,3 +1,16 @@
+import HeroImage from "../public/hero-bg.jpg";
+import OverviewImage from "../public/overview-bg.jpg";
+import MedicalImage from "../public/medical-bg.jpg";
+import AgricultureImage from "../public/agriculture-bg.jpg";
+import MedicalEquipment from "../public/medicalEquipment.jpg";
+import HouseholdAppliances from "../public/household-appliances.jpeg";
+import unDisplaced from "../public/unDisplaced.png";
+import homeAppliances2 from "../public/homeAppliances-2.jpeg";
+import modernLighting from "../public/modernLighting.jpeg";
+import iraqiStaffDeliveringAid from "../public/iraqiStaffDeliveringAid.png";
+import ourVision from "../public/ourVision.png";
+import visionMission from "../public/visionMission.jpg";
+
 export const config = {
   title: "Qemat Al-Najah",
   description: "Qemat Alnajah",
@@ -12,6 +25,20 @@ export const config = {
     { title: "Services", path: "#services" },
     { title: "Contact us", path: "#contact" },
   ],
+  images: {
+    heroImage: HeroImage,
+    overviewImage: OverviewImage,
+    medicalImage: MedicalImage,
+    agricultureImage: AgricultureImage,
+    medicalEquipment: MedicalEquipment,
+    householdAppliances: HouseholdAppliances,
+    unDisplaced: unDisplaced,
+    homeAppliances2: homeAppliances2,
+    modernLighting: modernLighting,
+    iraqiStaffDeliveringAid: iraqiStaffDeliveringAid,
+    ourVision: ourVision,
+    visionMission: visionMission,
+  },
   specialties: [
     "Construction",
     "Medical Support Services",

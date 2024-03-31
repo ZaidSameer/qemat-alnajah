@@ -1,59 +1,30 @@
 import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import HeroImage from "../public/hero-bg.jpg";
-import OverviewImage from "../public/overview-bg.jpg";
-import MedicalImage from "../public/medical-bg.jpg";
-import AgricultureImage from "../public/agriculture-bg.jpg";
+
 import Container from "@/components/container";
 import { config } from "@/lib/config";
 import ContactForm from "@/components/contact-form";
-import { FacebookIcon } from "lucide-react";
+import { ArrowRight, FacebookIcon } from "lucide-react";
+import HomeCarousel from "@/components/HomeCarousel";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import PrimaryLink from "@/components/PrimaryLink";
+import { text } from "stream/consumers";
+import SecondaryLink from "@/components/SecondaryLink";
+import Clients from "@/components/Clients";
 
 export default function Home() {
+  const { images } = config;
   return (
     <main>
-      <section id="home" className="relative" style={{ backgroundImage: `url(${HeroImage.src})` }}>
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/50 z-[1]" />
-        <Container>
-          <div className="flex min-h-screen flex-col justify-center text-center lg:text-left leading-snug relative z-10 pt-20">
-            <p className="mb-2 text-base text-primary">Since 2005</p>
-            <h1 className="text-4xl font-bold sm:text-5xl leading-snug">
-              <span className="text-primary leading-snug"> {config.title} </span>
-            </h1>
-            <p className="mb-4 text-3xl font-bold sm:mb-8 leading-snug">
-              General Trading & Supply Contracting Company
-            </p>{" "}
-            <div className="flex justify-center items-center md:justify-start w-full md:max-w-3xl">
-              <div className="mb-8 text-lg leading-snug text-gray-600">
-                <strong className="text-black">Qemah Al-Najah Co.</strong>  It is the name behind many Iraq’s most advanced and prestigious facilities. The
-                company was established in 1998. And it is headquartered in Baghdad. Over the years, the group has
-                un- retaken many challenging projects and accumulated skills.
-              </div>
-
-            </div>
-            <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <Link href="#contact" className={cn(buttonVariants({ variant: "default" }))}>
-                Contact us
-              </Link>
-              <Link href="#about" className={cn(buttonVariants({ variant: "secondary" }))}>
-                Read more
-              </Link>
-            </div>
-          </div>
-
-        </Container>
-      </section>
-
-      {/* features section */}
+      <HomeCarousel />
 
       <section id="about" className="py-20 bg-white">
         <Container>
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
               <Image
-                src={OverviewImage}
+                src={images.overviewImage.src}
                 alt="Company Overview"
                 height={500}
                 width={500}
@@ -66,7 +37,7 @@ export default function Home() {
               </span>
               <h2 className="text-3xl font-bold mb-5">An Overview</h2>
               <p className="text-gray-600 leading-snug text-bass">
-                Qemah Al-Najah Co., headquartered in the capital of Iraq, with its cutting edge management and staff are composed of Individuals with extensive experience in their respective fields of expertise and continues to rise to the challenges that rapid development in Iraqi region has generated, the diversity of disciplines of the Qemah Al-Najah Co. staff and their experience in executing major projects a clear indication of the professionalism that we deliver to our clients and inspires confidence in our capability to deliver optimum project execution.
+                {config.title} Co., headquartered in the capital of Iraq, with its cutting edge management and staff are composed of Individuals with extensive experience in their respective fields of expertise and continues to rise to the challenges that rapid development in Iraqi region has generated, the diversity of disciplines of the {config.title} Co. staff and their experience in executing major projects a clear indication of the professionalism that we deliver to our clients and inspires confidence in our capability to deliver optimum project execution.
               </p>
             </div>
           </div>
@@ -81,33 +52,119 @@ export default function Home() {
           </span>
           <h2 className="text-3xl font-bold mb-8">Our Services</h2>
           <p className="mb-8">
-            Qemah Al-Najah Co. in Baghdad offers a wide range of services with a higher the caliber of expertise in the respective fields of General Trading, Contracting, Construction, Logistics, Cargo, International ordering, Shipping, Electrical and power equipment, and supplying different types of materials as required. Working with profit and humanitarian non-profit sector.
+            <strong>{config.title} Co.</strong> in Baghdad offers a wide range of services with a higher the caliber of expertise in the respective fields of General Trading, Contracting, Construction, Logistics, Cargo, International ordering, Shipping, Electrical and power equipment, and supplying different types of materials as required. Working with profit and humanitarian non-profit sector.
+          </p>
+          <p className="mb-8 font-semibold">
+            {config.title} General Trading Company Limited is your trusted partner for a variety of business needs in Iraq. We offer a comprehensive range of products and services across three main divisions, ensuring we can meet your specific requirements
           </p>
 
-          <h2 className="text-3xl font-bold mb-8">We are specialized in</h2>
+
+          <div className="flex flex-col lg:flex-row gap-12 mb-12">
+            <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
+              <div className="absolute top-0 left-0 text-white/90 z-[1] text-[9rem] font-bold" >1</div>
+              <div className="relative z-[2]">
+                <div className="flex items-center gap-3 mb-3">
+                  {/* <div className="size-8 flex items-center justify-center rounded-full border-2 border-primary text-primary">1</div> */}
+                  <h3 className="text-2xl font-semibold text-primary">Electronics and appliances</h3>
+                </div>
+                <p>We are the leading supplier of high-quality electronic materials and devices in Iraq. Our team is dedicated to providing the latest technology to support your needs. From basic components to complete electronic systems, we have everything you need. </p>
+              </div>
+            </div>
+
+            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+              <Image
+                src={images.homeAppliances2.src}
+                alt="Medical Supply"
+                height={500}
+                width={500}
+                className="rounded-sm"
+              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-12 mb-12">
+            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+              <Image
+                src={images.modernLighting.src}
+                alt="Medical Supply"
+                height={500}
+                width={500}
+                className="rounded-sm"
+              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </div>
+            <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
+              <div className="absolute top-0 left-0 text-white/90 z-[1] text-[9rem] font-bold" >2</div>
+              <div className="relative z-[2]">
+                <div className="flex items-center gap-3 mb-3">
+                  {/* <div className="size-8 flex items-center justify-center rounded-full border-2 border-primary text-primary">1</div> */}
+                  <h3 className="text-2xl font-semibold text-primary">Modern electrical and lighting devices and equipment</h3>
+                </div>
+                <p>
+                  Our second division specializes in trading and supplying a wide range of electrical materials. This includes modern lighting solutions to efficiently and aesthetically illuminate your spaces. Our experience ensures you get the right electrical equipment for your project.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-12">
+            <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
+              <div className="absolute top-0 left-0 text-white/90 z-[1] text-[9rem] font-bold" >3</div>
+              <div className="relative z-[2]">
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="text-2xl font-semibold text-primary">Supporting the displaced: emergency supplies to United Nations organizations</h3>
+                </div>
+                <p>We are the leading supplier of high-quality electronic materials and devices in Iraq. Our team is dedicated to providing the latest technology to support your needs. From basic components to complete electronic systems, we have everything you need. </p>
+              </div>
+            </div>
+
+            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+              <Image
+                src={images.iraqiStaffDeliveringAid.src}
+                alt="Medical Supply"
+                height={500}
+                width={500}
+                className="rounded-sm"
+              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </div>
+          </div>
+
+          <h2 className="text-3xl font-bold mb-8">... and many other services</h2>
           <div className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
             {config.specialties.map((specialty, index) => (
-              <div key={index} className="flex text-center cursor-pointer py-3 items-center justify-center w-full h-full rounded-lg bg-primary text-white border-transparent border-2 hover:bg-transparent hover:border-primary hover:border-2 hover:text-primary transition-all duration-300 ease-linear">
-                <p className="text-base">{specialty}</p>
-              </div>
+              <>
+                <PrimaryLink key={index} href="javascript:void(0)" className="!w-full" >{specialty}</PrimaryLink>
+                {config.specialties.length === index + 1 && (
+                  <>
+                    <SecondaryLink key={index} href="j/services" className="!max-w-full !w-full before:border-2 before:border-primary" >Read more</SecondaryLink>
+                  </>
+                )}
+              </>
             ))}
           </div>
         </Container>
       </section>
 
+      <WhyChooseUs />
+      {/* <Clients /> */}
       {/* stats */}
       <section className="pt-20 pb-10 bg-white">
         <Container className="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mb-0 text-sky-500">
+            <path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd"></path>
+          </svg>
           <div className="flex flex-col md:flex-row-reverse gap-8">
-
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
               <Image
-                src={MedicalImage}
+                src={images.ourVision.src}
                 alt="Medical Supply"
                 height={500}
                 width={500}
                 className="rounded-sm"
-                // style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
             </div>
             <div className="flex flex-col justify-center flex-1 lg:flex-2">
@@ -127,10 +184,14 @@ export default function Home() {
 
 
       <section className="pb-20 pt-10 bg-white">
-        <Container className="flex flex-col lg:flex-row gap-8">
-          <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+        <Container className="flex flex-col lg:flex-row gap-8 relative">
+          <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0 ">
+          <div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+              <div className="blur-[106px] h-32 bg-gradient-to-br from-emerald-700 to-blue-700 dark:from-blue-700"></div>
+              <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+            </div>
             <Image
-              src={AgricultureImage}
+              src={images.visionMission.src}
               alt="Agriculture Image"
               height={500}
               width={500}
@@ -160,12 +221,12 @@ export default function Home() {
 
       <section className="py-14 bg-primary text-gray-50">
         <Container className="flex items-center justify-between flex-col md:flex-row">
-          <div className="flex flex-col lg:flex-row space-y-2 text-center sm:text-left mb-8 md:mb-0">
+          <div className="flex flex-col space-y-2 text-center sm:text-left mb-8 md:mb-0">
             <h2 className="text-3xl font-bold leading-none">
               Follow on Facebook for more project updates
             </h2>
             <p className="text-white/60 text-lg lg:px-0">
-              When I add something new, you will be the first to know
+              When we add something new, you will be the first to know.
             </p>
           </div>
 
