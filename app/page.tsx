@@ -1,20 +1,22 @@
-import { Button, buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-
+import { Button } from "@/components/ui/button";
 import Container from "@/components/container";
 import { config } from "@/lib/config";
 import ContactForm from "@/components/contact-form";
-import { ArrowRight, FacebookIcon } from "lucide-react";
+import { FacebookIcon } from "lucide-react";
 import HomeCarousel from "@/components/HomeCarousel";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import PrimaryLink from "@/components/PrimaryLink";
-import { text } from "stream/consumers";
 import SecondaryLink from "@/components/SecondaryLink";
 import Clients from "@/components/Clients";
+import { MediaSection, MediaSectionTitle, MediaSectionTitleTagline, MediaSectionImage } from "@/components/MediaSection";
+import OurTeam from "@/components/OurTeam";
 
 export default function Home() {
   const { images } = config;
+
+
   return (
     <main>
       <HomeCarousel />
@@ -135,10 +137,10 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
             {config.specialties.map((specialty, index) => (
               <>
-                <PrimaryLink key={index} href="javascript:void(0)" className="!w-full" >{specialty}</PrimaryLink>
+                <PrimaryLink key={index} href="#" className="!w-full" >{specialty}</PrimaryLink>
                 {config.specialties.length === index + 1 && (
                   <>
-                    <SecondaryLink key={index} href="j/services" className="!max-w-full !w-full before:border-2 before:border-primary" >Read more</SecondaryLink>
+                    <SecondaryLink key={index} href="#services" className="!max-w-full !w-full before:border-2 before:border-primary" >Read more ...</SecondaryLink>
                   </>
                 )}
               </>
@@ -148,13 +150,13 @@ export default function Home() {
       </section>
 
       <WhyChooseUs />
-      {/* <Clients /> */}
+      <Clients />
       {/* stats */}
       <section className="pt-20 pb-10 bg-white">
         <Container className="">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mb-0 text-sky-500">
-            <path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd"></path>
-            <path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd"></path>
+            <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd"></path>
+            <path fillRule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clipRule="evenodd"></path>
           </svg>
           <div className="flex flex-col md:flex-row-reverse gap-8">
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
@@ -186,7 +188,7 @@ export default function Home() {
       <section className="pb-20 pt-10 bg-white">
         <Container className="flex flex-col lg:flex-row gap-8 relative">
           <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0 ">
-          <div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+            <div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
               <div className="blur-[106px] h-32 bg-gradient-to-br from-emerald-700 to-blue-700 dark:from-blue-700"></div>
               <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
             </div>
@@ -218,6 +220,7 @@ export default function Home() {
         </Container>
       </section>
 
+      <OurTeam />
 
       <section className="py-14 bg-primary text-gray-50">
         <Container className="flex items-center justify-between flex-col md:flex-row">
@@ -240,10 +243,18 @@ export default function Home() {
         </Container>
       </section>
 
-      <section id="contact" className="py-20">
-        <Container className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+      <section id="contact" className="py-20 relative">
+        <div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+          <div className="blur-[106px] h-32 bg-gradient-to-br from-emerald-700 to-blue-700 dark:from-blue-700"></div>
+          <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+        </div>
+
+        <Container className="grid grid-cols-1 gap-12 lg:grid-cols-2 z-10 relative">
           <div className="flex flex-col">
             <h2 className="text-3xl font-bold mb-4">Contact us</h2>
+            <strong className="mb-3 text-primary text-base">
+              {config.title} - Your partner for success in Iraq. Contact us today to discuss your specific needs!
+            </strong>
             <p className="text-lg leading-6 text-gray-600">
               If you have requests, suggestions or any other feedback, please
               leave a message below and we&apos;ll get back to you as soon as

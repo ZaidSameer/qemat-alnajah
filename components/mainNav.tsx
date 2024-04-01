@@ -41,7 +41,7 @@ export default function MainNav() {
           <span className="self-center text-xl sm:text-3xl font-semibold">
             {config.title}
           </span>
-          <span className="hidden lg:inline-block">شركة قمة النجاح</span>
+          <span className="hidden lg:inline-block font-tajawal">شركة قمة النجاح</span>
         </Link>
 
         {/* ) : null} */}

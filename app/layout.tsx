@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Inter, Readex_Pro, Tajawal } from "next/font/google";
+import "./styles/globals.css";
 import MainNav from "@/components/mainNav";
 import MainFooter from "@/components/mainFooter";
 import { Toaster } from "sonner";
 import { config } from "@/lib/config";
 
 const inter = Inter({ subsets: ["latin"] });
+const tajawal = Readex_Pro({ weight: "700", subsets: ["arabic"], variable: "--font-tajawal" });
 
 export const metadata: Metadata = {
   title: config.seoTitle,
@@ -21,11 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${tajawal.variable}`}>
         <MainNav />
         <div className="min-h-screen">{children}</div>
-        <MainFooter />
         <Toaster />
+        <MainFooter />
       </body>
     </html>
   );

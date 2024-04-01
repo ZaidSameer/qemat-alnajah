@@ -10,14 +10,19 @@ import modernLighting from "../public/modernLighting.jpeg";
 import iraqiStaffDeliveringAid from "../public/iraqiStaffDeliveringAid.png";
 import ourVision from "../public/ourVision.png";
 import visionMission from "../public/visionMission.jpg";
+import hidLogo from "../public/clients/hid-logo.png";
+import ipixaLogo from "../public/clients/ipixa-security-logo.png";
+import ariTechLogo from "../public/clients/aritech-logo.png";
+import lenels2Logo from "../public/clients/lenels2-logo.png";
+
 
 export const config = {
   title: "Qemat Al-Najah",
-  description: "Qemat Alnajah",
+  description: "Qemat Al-Najah",
   url: "https://qemat-alnajah.vercel.app",
-  author: "Qemat Alnajah",
-  ogImage: "https://qemat-alnajah.vercel.app/og.png",
-  mainEmail: "info@qemat-alnajah.com.iq",
+  author: "Zaid Sameer",
+  ogImage: "https://i.ibb.co/FhgGLVs/logo.png",
+  mainEmail: "info@qematalnajah.com.iq",
   facebookURL: "https://facebook.com/qemat-alnajah",
   mainMenu: [
     { title: "Home", path: "#home" },
@@ -39,6 +44,12 @@ export const config = {
     ourVision: ourVision,
     visionMission: visionMission,
   },
+  clientsImages: {
+    hid: hidLogo,
+    ipixa: ipixaLogo,
+    ariTech: ariTechLogo,
+    lenels2: lenels2Logo
+  },
   specialties: [
     "Construction",
     "Medical Support Services",
@@ -55,7 +66,7 @@ export const config = {
     "Rental Services",
     "Manpower & Packaging",
   ],
-  seoTitle: "QEMAH AL-NAJAH Co. | General Trading & Supply Contracting.",
+  seoTitle: "Qemat Al-Najah Co. | General Trading & Supply Contracting.",
   seoDescription:
     "Qemah Al-Najah Co. It is the name behind many Iraq’s most advanced and prestigious facilities. The company was established in 1998. And it is headquartered in Baghdad. Over the years, the group has un- retaken many challenging projects and accumulated skills.",
 };

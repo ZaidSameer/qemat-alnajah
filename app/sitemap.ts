@@ -5,21 +5,21 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://inatorsui.vercel.app",
+      url: "https://qematalnajah.com.iq",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://inatorsui.vercel.app/docs",
+      url: "https://qematalnajah.com.iq/contact",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.5,
     },
     {
-      url: "https://inatorsui.vercel.app/inators",
+      url: "https://qematalnajah.com.iq/services",
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.5,
     },
   ];
