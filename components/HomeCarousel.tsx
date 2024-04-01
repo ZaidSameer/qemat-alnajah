@@ -83,7 +83,7 @@ const HomeCarousel: FC<HomeCarouselProps> = ({ }) => {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <div className="absolute right-10 bottom-10 gap-4 flex items-center flex-row justify-center">
+                <div className="absolute right-10 bottom-10 gap-4 flex items-center flex-row justify-center z-10">
                     <CarouselPrevious className={cn(buttonsCss, "")} variant={"default"} />
                     <CarouselNext className={cn(buttonsCss, "")} variant={"default"} />
                 </div>

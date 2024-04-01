@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <main>
-      {/* <HomeCarousel /> */}
+      <HomeCarousel />
 
       <section id="about" className="py-20 bg-white">
         <Container>
