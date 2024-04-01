@@ -13,6 +13,22 @@ export const metadata: Metadata = {
   title: config.seoTitle,
   description: config.seoDescription,
   keywords: config.specialties,
+  openGraph: {
+    title: config.seoTitle,
+    description: config.seoDescription,
+    url: config.url,
+    siteName: config.seoTitle,
+    images: [
+      {
+        url: config.ogImage,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({
