@@ -17,12 +17,13 @@ import * as React from "react"
 import { sliderImages } from '@/data';
 import PrimaryLink from './PrimaryLink';
 import SecondaryLink from './SecondaryLink';
+import { DotButton } from './EmbalaCarouselButtons';
 
 interface HomeCarouselProps { }
 
 const HomeCarousel: FC<HomeCarouselProps> = ({ }) => {
     const plugin = React.useRef(
-        Autoplay({ delay: 3000, stopOnInteraction: true })
+        Autoplay({ delay: 3000, stopOnInteraction: false })
     )
     const buttonsCss = "relative left-[unset] right-[unset] bottom-[unset] translate-x-0 translate-y-0";
 
@@ -39,9 +40,10 @@ const HomeCarousel: FC<HomeCarouselProps> = ({ }) => {
                 <CarouselContent className='-ml-1'>
                     {sliderImages.map(({ prefixText, image, title, description, tagLine, actions }, index) => (
                         <CarouselItem key={index} style={{ backgroundImage: `url(${image})` }} className="pl-1 relative bg-cover bg-no-repeat">
-                            <div className="absolute top-0 left-0 right-0 bottom-0 backdrop-hue-rotate-15 bg-white/50 z-[1]" />
+                            <div className="absolute top-0 left-0 right-0 bottom-0 backdrop-hue-rotate-15 bg-white/70 z-[1]" />
                             <Container>
                                 <div className='flex min-h-screen flex-col justify-center text-center lg:text-left leading-snug relative z-10 max-w-2xl'>
+
                                     {prefixText ? (
                                         <p className='text-primary mb-2 text-base'>{prefixText}</p>
                                     ) : null}

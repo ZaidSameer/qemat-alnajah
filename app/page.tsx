@@ -12,26 +12,42 @@ import SecondaryLink from "@/components/SecondaryLink";
 import Clients from "@/components/Clients";
 import { MediaSection, MediaSectionTitle, MediaSectionTitleTagline, MediaSectionImage } from "@/components/MediaSection";
 import OurTeam from "@/components/OurTeam";
+import React from "react";
+
+
+export const SectionImage = ({ src, alt }: { src: string, alt: string }) => {
+  const sectionImageCss = "relative object-cover w-full rounded-2xl shadow-xl hover:scale-105 hover:shadow-2xl duration-300 transition-all ease-in-out";
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      height={500}
+      width={500}
+      className={sectionImageCss}
+    />
+  )
+}
+
+
+export const SectionNumber = ({ number }: { number: string }) => {
+  return (
+    <div className="absolute top-0 left-0 text-primary/30 z-[1] text-[9rem] font-bold">{number}</div>
+  )
+}
 
 export default function Home() {
   const { images } = config;
-
+  const sectionImageCss = "rounded-2xl shadow-xl hover:scale-105 hover:shadow-2xl duration-300 transition-all ease-in-out";
 
   return (
     <main>
-      <HomeCarousel />
+      {/* <HomeCarousel /> */}
 
       <section id="about" className="py-20 bg-white">
         <Container>
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
-              <Image
-                src={images.overviewImage.src}
-                alt="Company Overview"
-                height={500}
-                width={500}
-                className="rounded-sm"
-              />
+              <SectionImage src={images.teamMembers.src} alt="Company Overview" />
             </div>
             <div className="flex flex-col justify-center flex-1 lg:flex-2">
               <span className="mb-3 text-xs tracking-widest uppercase text-primary">
@@ -60,10 +76,9 @@ export default function Home() {
             {config.title} General Trading Company Limited is your trusted partner for a variety of business needs in Iraq. We offer a comprehensive range of products and services across three main divisions, ensuring we can meet your specific requirements
           </p>
 
-
           <div className="flex flex-col lg:flex-row gap-12 mb-12">
             <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
-              <div className="absolute top-0 left-0 text-white/90 z-[1] text-[9rem] font-bold" >1</div>
+              <SectionNumber number="01" />
               <div className="relative z-[2]">
                 <div className="flex items-center gap-3 mb-3">
                   {/* <div className="size-8 flex items-center justify-center rounded-full border-2 border-primary text-primary">1</div> */}
@@ -74,30 +89,16 @@ export default function Home() {
             </div>
 
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
-              <Image
-                src={images.homeAppliances2.src}
-                alt="Medical Supply"
-                height={500}
-                width={500}
-                className="rounded-sm"
-              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              />
+              <SectionImage src={images.electronics.src} alt="Electronics and appliances" />
             </div>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12 mb-12">
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
-              <Image
-                src={images.modernLighting.src}
-                alt="Medical Supply"
-                height={500}
-                width={500}
-                className="rounded-sm"
-              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              />
+              <SectionImage src={images.modernLighting.src} alt="Modern Lighting" />
             </div>
             <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
-              <div className="absolute top-0 left-0 text-white/90 z-[1] text-[9rem] font-bold" >2</div>
+            <SectionNumber number="02" />
               <div className="relative z-[2]">
                 <div className="flex items-center gap-3 mb-3">
                   {/* <div className="size-8 flex items-center justify-center rounded-full border-2 border-primary text-primary">1</div> */}
@@ -112,7 +113,7 @@ export default function Home() {
 
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
-              <div className="absolute top-0 left-0 text-white/90 z-[1] text-[9rem] font-bold" >3</div>
+            <SectionNumber number="03" />
               <div className="relative z-[2]">
                 <div className="flex items-center gap-3 mb-3">
                   <h3 className="text-2xl font-semibold text-primary">Supporting the displaced: emergency supplies to United Nations organizations</h3>
@@ -122,28 +123,22 @@ export default function Home() {
             </div>
 
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
-              <Image
-                src={images.iraqiStaffDeliveringAid.src}
-                alt="Medical Supply"
-                height={500}
-                width={500}
-                className="rounded-sm"
-              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              />
+              <SectionImage src={images.iraqiStaffDeliveringAid.src} alt="Delivering Aid for Displaced" />
             </div>
           </div>
 
           <h2 className="text-3xl font-bold mb-8">... and many other services</h2>
           <div className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
             {config.specialties.map((specialty, index) => (
-              <>
-                <PrimaryLink key={index} href="#" className="!w-full" >{specialty}</PrimaryLink>
+              <React.Fragment key={index+specialty}>
+                <PrimaryLink href="#" className="!w-full" >{specialty}</PrimaryLink>
                 {config.specialties.length === index + 1 && (
-                  <>
-                    <SecondaryLink key={index} href="#services" className="!max-w-full !w-full before:border-2 before:border-primary" >Read more ...</SecondaryLink>
-                  </>
-                )}
-              </>
+                      <>
+                        <SecondaryLink href="#services" className="!max-w-full !w-full before:border-2 before:border-primary" >Read more ...</SecondaryLink>
+                      </>
+                    )}
+              </React.Fragment>
+                
             ))}
           </div>
         </Container>
@@ -151,7 +146,7 @@ export default function Home() {
 
       <WhyChooseUs />
       <Clients />
-      {/* stats */}
+
       <section className="pt-20 pb-10 bg-white">
         <Container className="">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mb-0 text-sky-500">
@@ -160,14 +155,7 @@ export default function Home() {
           </svg>
           <div className="flex flex-col md:flex-row-reverse gap-8">
             <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
-              <Image
-                src={images.ourVision.src}
-                alt="Medical Supply"
-                height={500}
-                width={500}
-                className="rounded-sm"
-              // style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              />
+              <SectionImage src={images.ourVision.src} alt="Our Vision" />
             </div>
             <div className="flex flex-col justify-center flex-1 lg:flex-2">
               <span className="mb-2 text-xs tracking-widest uppercase text-primary">
@@ -192,13 +180,7 @@ export default function Home() {
               <div className="blur-[106px] h-32 bg-gradient-to-br from-emerald-700 to-blue-700 dark:from-blue-700"></div>
               <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
             </div>
-            <Image
-              src={images.visionMission.src}
-              alt="Agriculture Image"
-              height={500}
-              width={500}
-              className="rounded-sm"
-            />
+            <SectionImage src={images.visionMission.src} alt="Our Vision" />
           </div>
 
           <div className="flex flex-col justify-center flex-1 lg:flex-2">

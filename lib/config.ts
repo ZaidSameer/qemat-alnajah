@@ -14,6 +14,10 @@ import hidLogo from "../public/clients/hid-logo.png";
 import ipixaLogo from "../public/clients/ipixa-security-logo.png";
 import ariTechLogo from "../public/clients/aritech-logo.png";
 import lenels2Logo from "../public/clients/lenels2-logo.png";
+import electronics from "../public/electronics.png";
+import teamMembers from "../public/team-members.png";
+import generalTrading from "../public/generalTrading.jpg";
+import electronicMaterials from "../public/electronicMaterials.jpeg";
 
 
 export const config = {
@@ -43,6 +47,10 @@ export const config = {
     iraqiStaffDeliveringAid: iraqiStaffDeliveringAid,
     ourVision: ourVision,
     visionMission: visionMission,
+    electronics: electronics,
+    teamMembers: teamMembers,
+    generalTrading: generalTrading,
+    electronicMaterials: electronicMaterials
   },
   clientsImages: {
     hid: hidLogo,

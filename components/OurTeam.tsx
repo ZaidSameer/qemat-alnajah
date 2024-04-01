@@ -7,9 +7,7 @@ import RazzaqPhoto from '../public/team/Mr-Najeh-Razzaq.png';
 import MakhaledPhoto from '../public/team/Mr-Makhaled-Ahmed.png';
 import MohamedPhoto from '../public/team/Mr-Mohamed-Noman.png';
 
-interface OurTeamProps {
-
-}
+interface OurTeamProps {}
 
 export const CardItem = ({ image, name, description }: { image: StaticImageData, name: string, description: string }) => {
     return (
@@ -25,7 +23,7 @@ export const CardItem = ({ image, name, description }: { image: StaticImageData,
                     {description}...
                 </p>
                 <Link className="inline-block" href="#">
-                    <span className="text-info dark:text-blue-300">Read more</span>
+                    <span className="text-primary hover:text-indigo-800 dark:text-blue-300">Read more ...</span>
                 </Link>
             </div>
         </div>
@@ -39,6 +37,7 @@ const OurTeam: FC<OurTeamProps> = ({ }) => {
         <section className='py-20 bg-gray-100'>
             <Container>
                 <h2 className="text-3xl font-bold mb-12">Our Team</h2>
+
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <CardItem image={RazzaqPhoto} name="Mr. Najeh Razzaq" description="an inspiring businessman and visionary, founded Qemat Al-Najah General Trading Company and made it a beacon of success and excellence in the world of trade" />
 
