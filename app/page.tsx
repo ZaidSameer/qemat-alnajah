@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -10,13 +11,11 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import PrimaryLink from "@/components/PrimaryLink";
 import SecondaryLink from "@/components/SecondaryLink";
 import Clients from "@/components/Clients";
-import { MediaSection, MediaSectionTitle, MediaSectionTitleTagline, MediaSectionImage } from "@/components/MediaSection";
 import OurTeam from "@/components/OurTeam";
-import React from "react";
 
 
-export const SectionImage = ({ src, alt }: { src: string, alt: string }) => {
-  const sectionImageCss = "relative object-cover w-full rounded-2xl shadow-xl hover:scale-105 hover:shadow-2xl duration-300 transition-all ease-in-out";
+const SectionImage = ({ src, alt }: { src: string, alt: string }) => {
+  const sectionImageCss = "relative w-full rounded-2xl shadow-xl hover:scale-105 hover:shadow-2xl duration-300 transition-all ease-in-out";
   return (
     <Image
       src={src}
@@ -29,7 +28,7 @@ export const SectionImage = ({ src, alt }: { src: string, alt: string }) => {
 }
 
 
-export const SectionNumber = ({ number }: { number: string }) => {
+const SectionNumber = ({ number }: { number: string }) => {
   return (
     <div className="absolute top-0 left-0 text-primary/30 z-[1] text-[9rem] font-bold">{number}</div>
   )
@@ -37,7 +36,6 @@ export const SectionNumber = ({ number }: { number: string }) => {
 
 export default function Home() {
   const { images } = config;
-  const sectionImageCss = "rounded-2xl shadow-xl hover:scale-105 hover:shadow-2xl duration-300 transition-all ease-in-out";
 
   return (
     <main>
@@ -62,7 +60,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* stats */}
+      {/* SERVICES */}
       <section id="services" className="py-20 bg-sky-100">
         <Container>
           <span className="mb-3 text-xs tracking-widest uppercase text-primary">
@@ -76,8 +74,8 @@ export default function Home() {
             {config.title} General Trading Company Limited is your trusted partner for a variety of business needs in Iraq. We offer a comprehensive range of products and services across three main divisions, ensuring we can meet your specific requirements
           </p>
 
-          <div className="flex flex-col lg:flex-row gap-12 mb-12">
-            <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
+          <div className="flex flex-col-reverse lg:flex-row gap-12 mb-12">
+            <div className="flex flex-col-re justify-center flex-1 lg:flex-2 relative">
               <SectionNumber number="01" />
               <div className="relative z-[2]">
                 <div className="flex items-center gap-3 mb-3">
@@ -88,13 +86,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+            <div className="lg:flex-3 lg:justify-start lg:mb-0">
               <SectionImage src={images.electronics.src} alt="Electronics and appliances" />
             </div>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12 mb-12">
-            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+            <div className="lg:flex-3 lg:justify-start">
               <SectionImage src={images.modernLighting.src} alt="Modern Lighting" />
             </div>
             <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
@@ -111,7 +109,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col-reverse lg:flex-row gap-12 mb-12">
             <div className="flex flex-col justify-center flex-1 lg:flex-2 relative">
             <SectionNumber number="03" />
               <div className="relative z-[2]">
@@ -122,7 +120,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+            <div className="lg:flex-3 lg:justify-start">
               <SectionImage src={images.iraqiStaffDeliveringAid.src} alt="Delivering Aid for Displaced" />
             </div>
           </div>
@@ -131,10 +129,10 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3">
             {config.specialties.map((specialty, index) => (
               <React.Fragment key={index+specialty}>
-                <PrimaryLink href="#" className="!w-full" >{specialty}</PrimaryLink>
+                <PrimaryLink href="#" className="!w-full text-center !text-sm !font-normal" >{specialty}</PrimaryLink>
                 {config.specialties.length === index + 1 && (
                       <>
-                        <SecondaryLink href="#services" className="!max-w-full !w-full before:border-2 before:border-primary" >Read more ...</SecondaryLink>
+                        <SecondaryLink href="#services" className="!max-w-full !w-full before:border-2 before:border-primary text-center" >Read more ...</SecondaryLink>
                       </>
                     )}
               </React.Fragment>
@@ -148,23 +146,26 @@ export default function Home() {
       <Clients />
 
       <section className="pt-20 pb-10 bg-white">
-        <Container className="">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mb-0 text-sky-500">
+        <Container className="flex-col">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 mb-4 text-sky-500">
             <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd"></path>
             <path fillRule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clipRule="evenodd"></path>
           </svg>
+
           <div className="flex flex-col md:flex-row-reverse gap-8">
-            <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0">
+
+            <div className="flex-1 lg:flex-3 lg:justify-start">
               <SectionImage src={images.ourVision.src} alt="Our Vision" />
             </div>
-            <div className="flex flex-col justify-center flex-1 lg:flex-2">
+
+            <div className="flex flex-col justify-center flex-1 lg:flex-2 mb-8">
               <span className="mb-2 text-xs tracking-widest uppercase text-primary">
                 An Innovative Company
               </span>
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-bold mb-6">
                 Our Vision
               </h2>
-              <p className="my-6 ">
+              <p>
                 Our Vision is to be a partner of choice for customers operating in complex, mission-critical environments by providing the most innovative modelling and simulation-based solution to Enhance safety, improve efficiency, help solve challenging problems, and provide clients with up-to-date service.
               </p>
             </div>
@@ -174,8 +175,9 @@ export default function Home() {
 
 
       <section className="pb-20 pt-10 bg-white">
-        <Container className="flex flex-col lg:flex-row gap-8 relative">
-          <div className="mb-8 lg:flex-3 lg:justify-start lg:mb-0 ">
+        <Container className="flex flex-col-reverse lg:flex-row relative">
+
+          <div className="flex-1 lg:flex-3 lg:justify-start">
             <div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
               <div className="blur-[106px] h-32 bg-gradient-to-br from-emerald-700 to-blue-700 dark:from-blue-700"></div>
               <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
@@ -183,7 +185,7 @@ export default function Home() {
             <SectionImage src={images.visionMission.src} alt="Our Vision" />
           </div>
 
-          <div className="flex flex-col justify-center flex-1 lg:flex-2">
+          <div className="flex flex-col justify-center flex-1 lg:flex-2 mb-8">
             <span className="mb-3 text-xs tracking-widest uppercase text-primary">
               We Demand Excellence
             </span>

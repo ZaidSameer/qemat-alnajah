@@ -18,7 +18,7 @@ const Clients: FC<ClientsProps> = () => {
                 Powerful partners
               </span>
                 <h2 className='mb-10 text-3xl font-bold'>Our Pioneering Brands</h2>
-                <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-6">
+                <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6">
                     <div className={css}>
                         <Image src={hid.src} className="h-20 w-auto mx-auto" loading="lazy" alt="HID logo" width={hid.width} height={hid.height} />
                     </div>
