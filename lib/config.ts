@@ -23,11 +23,16 @@ import electronicMaterials from "../public/electronicMaterials.jpeg";
 export const config = {
   title: "Qemat Al-Najah",
   description: "Qemat Al-Najah",
-  url: "https://qemat-alnajah.vercel.app",
+  url: "https://www.qematalnajah.com.iq",
   author: "Zaid Sameer",
   ogImage: "https://i.ibb.co/FhgGLVs/logo.png",
-  mainEmail: "info@qematalnajah.com.iq",
-  facebookURL: "https://facebook.com/qemat-alnajah",
+  mainEmail: "qematalnajah.com.iq",
+  mainPhone: "+9647705300076",
+  socialMedia: {
+    facebookURL: "https://facebook.com/qemat-alnajah",
+    instagramURL: "https://www.instagram.com/qemat_al_najah",
+    telegramURL: "https://t.me/+9647705300076",
+  },
   mainMenu: [
     { title: "Home", path: "#home" },
     { title: "About", path: "#about" },

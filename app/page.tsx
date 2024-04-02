@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import Container from "@/components/container";
 import { config } from "@/lib/config";
 import ContactForm from "@/components/contact-form";
-import { FacebookIcon } from "lucide-react";
+import { AtSign, FacebookIcon, PhoneCall } from "lucide-react";
 import HomeCarousel from "@/components/HomeCarousel";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import PrimaryLink from "@/components/PrimaryLink";
 import SecondaryLink from "@/components/SecondaryLink";
 import Clients from "@/components/Clients";
 import OurTeam from "@/components/OurTeam";
+import FollowUsSection from "@/components/FollowUsSection";
 
 
 const SectionImage = ({ src, alt }: { src: string, alt: string }) => {
@@ -206,26 +207,7 @@ export default function Home() {
 
       <OurTeam />
 
-      <section className="py-14 bg-primary text-gray-50">
-        <Container className="flex items-center justify-between flex-col md:flex-row">
-          <div className="flex flex-col space-y-2 text-center sm:text-left mb-8 md:mb-0">
-            <h2 className="text-3xl font-bold leading-none">
-              Follow on Facebook for more project updates
-            </h2>
-            <p className="text-white/60 text-lg lg:px-0">
-              When we add something new, you will be the first to know.
-            </p>
-          </div>
-
-          <div className="flex flex-row items-center self-center justify-center flex-shrink-0 lg:justify-end">
-            <Link href={config.facebookURL}>
-              <Button variant="outline" size="lg" className="text-black dark:text-white">
-                Facebook <FacebookIcon className="size-5 ms-2" />
-              </Button>
-            </Link>
-          </div>
-        </Container>
-      </section>
+      <FollowUsSection />
 
       <section id="contact" className="py-20 relative">
         <div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
@@ -239,11 +221,13 @@ export default function Home() {
             <strong className="mb-3 text-primary text-base">
               {config.title} - Your partner for success in Iraq. Contact us today to discuss your specific needs!
             </strong>
-            <p className="text-lg leading-6 text-gray-600">
-              If you have requests, suggestions or any other feedback, please
-              leave a message below and we&apos;ll get back to you as soon as
-              possible.
+            <p className="text-lg leading-6 text-gray-600 mb-12">
+              If you have requests, suggestions or any other feedback, please leave a message below and we&apos;ll get back to you as soon as possible.
             </p>
+
+            <p className="text-lg leading-6 text-gray-600 flex items-center mb-6"><PhoneCall className="me-2"/> {config.mainPhone}</p>
+
+            <p className="text-lg leading-6 text-gray-600 flex items-center"><AtSign className="me-2"/> {config.mainEmail}</p>
           </div>
           <ContactForm />
         </Container>
